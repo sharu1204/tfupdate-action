@@ -33,6 +33,9 @@ inputs:
     description: "A lable to be added when creating a PR"
     required: false
     default: "dependencies"
+  reviewer:
+    description: "Reviewer to be assigned when creating a PR"
+    required: false
 
 runs:
   using: "docker"

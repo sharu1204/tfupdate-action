@@ -66,7 +66,7 @@ function run_tfupdate {
     ARGS="${ARGS} ${INPUT_MODULE_NAME}"
   fi
 
-  # Set github config with bot user
+  # Set github config
   git config --local user.email "${USER_EMAIL}"
   git config --local user.name "${USER_NAME}"
 
@@ -98,7 +98,11 @@ function run_tfupdate {
   else
     echo "Creating a pull request: ${UPDATE_MESSAGE}"
     git commit -m "${UPDATE_MESSAGE}"
-    git push origin HEAD && hub pull-request -m "${UPDATE_MESSAGE}" -m "${PULL_REQUEST_BODY}" -b ${INPUT_BASE_BRANCH} -l ${INPUT_LABEL}
+    if [ ${INPUT_REVIEWER} ]; then
+      git push origin HEAD && hub pull-request -m "${UPDATE_MESSAGE}" -m "${PULL_REQUEST_BODY}" -b ${INPUT_BASE_BRANCH} -l ${INPUT_LABEL} -r ${INPUT_REVIEWER}
+    else
+      git push origin HEAD && hub pull-request -m "${UPDATE_MESSAGE}" -m "${PULL_REQUEST_BODY}" -b ${INPUT_BASE_BRANCH} -l ${INPUT_LABEL}
+    fi
   fi
 }
 

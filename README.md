@@ -53,6 +53,14 @@ If you want to skip the current latest version for some reason, you can simply c
 
 **Optional** The branch name against which a PR will be created. Default to `"master"`.
 
+### `label`
+
+**Optional** The label name added to a PR. Default to `"dependencies"`. If the lable does not exit, it will be automatically created.
+
+### `reviewer`
+
+**Optional** A reviewer to be assigned to a PR. You can assign multiple reviewers with a comma-separated list (no spaces around the comma).
+
 ## Example Usage
 
 ```yml

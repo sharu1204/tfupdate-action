@@ -15,7 +15,7 @@ to the latest version with v0.12+ support (`tdupdate` originally supports it).
 
 ## Behavior
 
-When `tfupdate-action` is triggerrd, it checks the latest version of the resource you specified. If there is an update, it creates a pull request to bump a version against a base branch.
+When `tfupdate-action` is triggered, it checks the latest version of the resource you specified. If there is an update, it creates a pull request to bump a version against the base branch you specified.
 
 If you want to skip the current latest version for some reason, you can simply close the pull request. `tfupdate-action` will not create another pull reuqest for the same version.
 
